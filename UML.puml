@@ -1,0 +1,45 @@
+@startuml
+class container.Neuron {
+- {static} double minWeightValue
+- {static} double maxWeightValue
+- double[] weights
+- double gradient
+- double bias
+- double value
++ {static} void setRangeWeight(double,double)
++ {static} double getMinWeightValue()
++ {static} void setMinWeightValue(double)
++ {static} double getMaxWeightValue()
++ {static} void setMaxWeightValue(double)
++ double[] getWeights()
++ void setWeights(double[])
++ double getGradient()
++ void setGradients(double)
++ double getBias()
++ void setBias(double)
++ double getValue()
++ void setValue(double)
+}
+
+
+class container.Layer {
+- Neuron[] neurons
+- Function function
++ double applyActivation(double)
++ double applyActivationDerivative(double)
++ Neuron[] getNeurons()
++ void setNeurons(Neuron[])
++ Function getFunction()
++ void setFunction(Function)
+}
+
+
+class container.NeuronDemo {
+- Neuron n
++ void demonstrate()
++ Neuron getN()
++ void setN(Neuron)
+}
+
+
+@enduml

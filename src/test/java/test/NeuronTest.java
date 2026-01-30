@@ -87,7 +87,7 @@ public class NeuronTest {
 		double gradient = -0.2;
 
 		neuron = new Neuron(0.5);
-		neuron.setGradient(gradient);
+		neuron.setGradients(gradient);
 
 		assertEquals(gradient, neuron.getGradient(), DELTA);
 	}

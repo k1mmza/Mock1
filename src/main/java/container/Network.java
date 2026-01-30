@@ -47,7 +47,7 @@ public class Network {
             double target = tData.getOutput()[i];
             double derivative = output - target;
             double delta = derivative * layers[outIndex].applyActivationDerivative(output);
-            layers[outIndex].getNeurons()[i].setGradient(delta);
+            layers[outIndex].getNeurons()[i].setGradients(delta);
 
             // Update weights and bias
             for (int j = 0; j < layers[outIndex].getNeurons()[i].getWeights().length; j++) {
@@ -64,7 +64,7 @@ public class Network {
                 double output = layers[i].getNeurons()[j].getValue();
                 double gradientSum = sumGradient(j, i + 1);
                 double delta = gradientSum * layers[i].applyActivationDerivative(output);
-                layers[i].getNeurons()[j].setGradient(delta);
+                layers[i].getNeurons()[j].setGradients(delta);
 
                 // Update weights and bias
                 for (int k = 0; k < layers[i].getNeurons()[j].getWeights().length; k++) {
